@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Mona Sans";
+  src: url("fonts/Mona Sans/Mona-Sans.ttf") format("truetype"),
+    url("fonts/Mona Sans/Mona-Sans.woff") format("woff"),
+    url("fonts/Mona Sans/Mona-Sans.woff2") format("woff2");
+}
+
+:root {
+  // Colors
+  --clr-youngnight: #232323;
+  --clr-zeuspalace: #3c343d;
+  --clr-valhalla: #2a2b41;
+  --clr-viennaroast: #330022;
+  --clr-wildiris: #2f2f4a;
+  --clr-void: #050d25;
+  --clr-jet: #3c343d;
+  --clr-bone: #e0ddcf;
+  --clr-isabelline: #f7f0ea;
+  --clr-tomato: #ff4a49;
+  --clr-gradients: linear-gradient(
+    135deg,
+    rgb(254, 172, 94) 0%,
+    rgb(199, 121, 208) 50%,
+    rgb(75, 192, 200) 100%
+  );
+  // Fonts
+  --ff-primary: "Mona Sans", sans-serif;
+
+  // Dark theme setup
+  &:has(body[data-theme="dark"]) {
+    --clr-background: var(--clr-youngnight);
+    --clr-foreground: var(--clr-bone);
+    --clr-accent: var(--clr-tomato);
+    --clr-focus: var(--clr-isabelline);
+  }
+  &:has(body[data-theme="light"]) {
+    --clr-background: var(--clr-bone);
+    --clr-foreground: var(--clr-jet);
+    --clr-accent: var(--clr-tomato);
+    --clr-focus: var(--clr-isabelline);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  // user text highlight color
+  &::selection {
+    background: var(--clr-focus);
+    color: var(--clr-background);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a,
+a:hover,
+a:active,
+a:focus {
+  all: unset;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 300;
+  color: var(--clr-foreground);
+  background: var(--clr-background);
+
+  nav {
+    position: fixed;
+
+    display: none;
+  }
+
+  main > section {
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
+#hero {
+  padding-inline: calc((100vw - 48rem) / 2);
+
+  user-select: none;
+
+  > * {
+    display: flex;
+    justify-content: space-between;
+
+    text-transform: uppercase;
+
+    &#hero__name,
+    &#hero__position,
+    &#hero__statement {
+      --weight: 300;
+      font-weight: var(--weight);
+    }
+  
+    &#hero__surname {
+      --weight: 500;
+      font-weight: var(--weight);
+    }
+
+    &#hero__name {
+      margin-bottom: 0.5rem;
+    }
+
+    &#hero__surname {
+      margin-bottom: 2.75rem;
+    }
+
+    &#hero__position {
+      margin-bottom: 0.75rem;
+    }
+
+    span {
+      transition: 0.3s;
+
+      &[data-state="hover"] {
+        color: var(--clr-accent);
+        font-weight: 700;
+      }
+
+      &[data-state="sided"] {
+        font-weight: calc(var(--weight) + 100);
+      }
+    }
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+}

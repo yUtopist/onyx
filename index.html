@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tekapo</title>
 
-  <link rel="stylesheet" href="./static/index.css">
-  <script type="module" src="./static/index.js" defer></script>
+  <link rel="stylesheet" href="./static/index.min.css">
+  <script type="module" src="./static/scripts/index.js" defer></script>
 </head>
-<body>
-  <nav>
-    <ul data-current="nav__hero">
-      <li><button class="nav__btn" id="nav__hero">Hero</button></li>
-      <li><button class="nav__btn" id="nav__talent">Talent</button></li>
-      <li><button class="nav__btn" id="nav__works">Works</button></li>
+
+<body data-theme="dark" data-section="hero">
+  <nav id="nav">
+    <ul>
+      <li><button class="nav__btn" data-id="hero">Hero</button></li>
+      <li><button class="nav__btn" data-id="talent">Talent</button></li>
+      <li><button class="nav__btn" data-id="works">Works</button></li>
     </ul>
   </nav>
 
   <main>
-    <section id="hero"></section>
-    <section id="talent"></section>
+    <section id="hero">
+      <h1 id="hero__name">Aleksei</h1>
+      <h1 id="hero__surname">Stukalov</h1>
+      <h2 id="hero__position">Full Stack Developer</h2>
+      <h3 id="hero__statement">With a passion for Front End</h3>
+    </section>
+
+    <section id="talent">
+      <ul id="theme">
+        <li><button class="theme__btn" data-id="light">Light</button></li>
+        <li><button class="theme__btn" data-id="dark">Dark</button></li>
+        <li><button class="theme__btn" data-id="funny">Funny</button></li>
+      </ul>
+
+
+    </section>
+
     <section id="works"></section>
   </main>
 
@@ -27,4 +44,5 @@
     <p>© 2023 Tekapo Project by Aleksei Stukalov from Blackdot Digital</p>
   </footer>
 </body>
+
 </html>
