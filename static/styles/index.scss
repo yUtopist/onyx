@@ -57,8 +57,11 @@ h1, h2, h3, h4, h5, h6, button, a, a:hover, a:active, a:focus {
   all: unset;
 }
 
+html {
+  overflow-y: hidden;
+}
+
 body {
-  height: 100dvh;
 
   font-family: var(--ff-primary);
   font-weight: 300;
@@ -68,15 +71,6 @@ body {
   nav {
     position: fixed;
     display: none;
-  }
-
-  main {
-    --section: 0;
-
-    position: absolute;
-    top: calc(var(--section) * -100dvh);
-
-    transition: .5s;
   }
 
   main > section {

@@ -9,15 +9,10 @@ console.log(`Please feel free to look around my repo.\n${REPO_URL}`)
 // We highjack the page scroll so we can control it from index.js, now lets
 // make sure the page is scrolled to the top when it loads and then set body
 // to overflow hidden so the user cant scroll it.
-window.scrollTo({
-  top: 0,
-  left: 0,
-  behavior: "smooth",
-})
-document.body.style.overflow = "hidden";
+window.scrollTo({ top: 0, behavior: 'smooth' });
+// document.body.style.overflow = "hidden";
 const main = document.querySelector('main')
 let currentSection = 0
-main.style.setProperty('--section', currentSection) // set current section to 0
 document.addEventListener('wheel', (event) => {
   // Lets get the direction of the scroll, and then we can decide if we want to
   // scroll up or down.
@@ -30,7 +25,8 @@ document.addEventListener('wheel', (event) => {
   if (currentSection + direction > 2) return
   // Lets scroll to the next section.
   currentSection += direction
-  main.style.setProperty('--section', currentSection)
+  
+  window.scrollTo({ top: currentSection * window.innerHeight, behavior: 'smooth' });
 })
 
 window.addEventListener('load', () => {
@@ -66,7 +62,7 @@ window.addEventListener('load', () => {
   document.body.dataset.loading = "false"
 
   const orderedOptions = {
-    delay: 500,
+    delay: 1000,
     interval: 30,
     type: 'ordered',
     id: 'fullname'
