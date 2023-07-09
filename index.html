@@ -7,10 +7,19 @@
   <title>Tekapo</title>
 
   <link rel="stylesheet" href="./static/index.min.css">
-  <script type="module" src="./static/scripts/index.js" defer></script>
+  <script type="module" src="./static/index.js" defer></script>
 </head>
 
 <body data-theme="dark" data-section="hero">
+  <script>
+    // We dont want any post-page-open styling glitches when the page is loading
+    // with default styling and then blinks in to proper styling.
+    // So lets just add a dataset loading to the body that will hide it until
+    // the page is loaded.
+    document.body.dataset.loading = "true";
+    // We remiving this toggle from index.js
+  </script>
+
   <nav id="nav">
     <ul>
       <li><button class="nav__btn" data-id="hero">Hero</button></li>

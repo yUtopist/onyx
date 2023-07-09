@@ -1,10 +1,4 @@
-console.log('Hello World!')
-
-// Hero heading effect
-const hero = document.querySelector('#hero')
-const heroList = Array.from(hero.children)
-
-heroList.forEach(heading => {
+export const charPopper = (heading) => {
   const content = heading.textContent.split('')
   heading.textContent = ''
 
@@ -34,4 +28,4 @@ heroList.forEach(heading => {
     span.onmouseleave = () => handleLeave()
     heading.appendChild(span)
   })
-})
+}
