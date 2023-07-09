@@ -1,5 +1,9 @@
 import { charPopper } from './scripts/charPopper.js'
 import { objectFader } from './scripts/objectFader.js'
+import { DesignSystem } from './scripts/DesignSystem.js'
+
+const designSystem = DesignSystem()
+designSystem.initialize()
 
 const REPO_URL = 'https://github.com/yUtopist/tekapo'
 console.log('Hello World!')
@@ -40,12 +44,16 @@ window.handleThemeChange = (button) => {
   const isActive = button.dataset.active === "true"
   if (isActive) return
 
-  const buttonList = Array.from(theme.querySelectorAll('.theme__btn'))
+  const buttonList = Array.from(theme.querySelectorAll('.btn_primary'))
   buttonList.forEach((item) => {
     item.dataset.active = button === item ? "true" : "false"
   })
 
   body.dataset.theme = button.dataset.theme
+}
+
+window.setDropdown = (button) => {
+  console.log('button')
 }
 
 // Lets handle page scrolling, so we can add some effects to it.

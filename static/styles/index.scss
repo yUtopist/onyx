@@ -134,6 +134,74 @@ body {
       opacity: 0;
     }
   }
+
+  .btn_primary {
+    min-width: 3rem;
+    padding: .5rem 2rem;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 4px;
+
+    text-align: center;
+    font-weight: 300;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      border-color: var(--clr-accent);
+    }
+
+    &[data-active="true"] {
+      border-color: var(--clr-foreground);
+
+      color: var(--clr-background);
+      background-color: var(--clr-foreground);
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: var(--clr-accent);
+    }
+  }
+
+  .dropdown {
+    min-width: 12rem;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--clr-foreground);
+    border-radius: 4px;
+
+    
+    font-weight: 300;
+    transition: .3s;
+    
+    .dropdown__btn {
+      width: 100%;
+      padding-block: .5rem;
+
+      display: flex;
+      align-items: center;
+
+      line-height: 1;
+      
+      cursor: pointer;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        margin-inline: .5rem;
+      }
+    }
+
+    .dropdown__list {
+      display: none;
+      position: absolute;
+    }
+  }
+
 }
 
 #hero {
@@ -208,41 +276,12 @@ body {
 
     display: flex;
     justify-content: space-around;
-
-    .theme__btn {
-      min-width: 3rem;
-      padding: .5rem 2rem;
-
-      border-width: 1px;
-      border-style: solid;
-      border-color: transparent;
-      border-radius: 4px;
-
-      text-align: center;
-      font-weight: 300;
-      cursor: pointer;
-      transition: .3s;
-
-      &:hover {
-        border-color: var(--clr-accent);
-      }
-
-      &[data-active="true"] {
-        border-color: var(--clr-foreground);
-
-        color: var(--clr-background);
-        background-color: var(--clr-foreground);
-        font-weight: 400;
-      }
-
-      &:focus {
-        border-color: var(--clr-accent);
-      }
-    }
   }
 
   #talent__controls {
-    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+
   }
   
 }

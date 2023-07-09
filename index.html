@@ -73,7 +73,7 @@
         <ul id="talent__theme">
           <li>
             <button
-              class="theme__btn"
+              class="btn_primary"
               data-theme="light"
               data-active="false"
               onclick="handleThemeChange(this)"
@@ -83,7 +83,7 @@
           </li>
           <li>
             <button
-              class="theme__btn"
+              class="btn_primary"
               data-theme="dark"
               data-active="true"
               onclick="handleThemeChange(this)"
@@ -93,7 +93,7 @@
           </li>
           <li>
             <button
-              class="theme__btn"
+              class="btn_primary"
               data-theme="funny"
               data-active="false"
               onclick="handleThemeChange(this)"
@@ -104,10 +104,19 @@
         </ul>
 
         <div id="talent__controls">
-          <select name="" id="">
-            <option value="weather">Weather</option>
-            <option value="other">Other</option>
-          </select>
+          <div
+            class="dropdown"
+            data-id="talent-dropdown"
+            data-active="false"
+            data-current="weather"
+          >
+            <button class="dropdown__btn">Weather API</button>
+            <ul class="dropdown__list">
+              <li><button data-id="weather">Weather API</button></li>
+              <li><button data-id="other">Other API</button></li>
+            </ul>
+          </div>
+
           <input type="text" />
           <button>Submit</button>
         </div>
