@@ -1,57 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tekapo</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tekapo</title>
+    <link rel="stylesheet" href="./static/index.min.css" />
+    <script type="module" src="./static/index.js" defer></script>
+  </head>
 
-  <link rel="stylesheet" href="./static/index.min.css">
-  <script type="module" src="./static/index.js" defer></script>
-</head>
+  <body data-theme="dark" data-section="hero">
+    <script>
+      // We dont want any post-page-open styling glitches when the page is loading
+      // with default styling and then blinks in to proper styling.
+      // So lets just add a dataset loading to the body that will hide it until
+      // the page is loaded.
+      document.body.dataset.loading = "true";
+      // We removing this toggle from index.js
+    </script>
 
-<body data-theme="dark" data-section="hero">
-  <script>
-    // We dont want any post-page-open styling glitches when the page is loading
-    // with default styling and then blinks in to proper styling.
-    // So lets just add a dataset loading to the body that will hide it until
-    // the page is loaded.
-    document.body.dataset.loading = "true"
-    // We removing this toggle from index.js
-  </script>
-
-  <nav id="nav">
-    <ul>
-      <li><button class="nav__btn" data-id="hero">Hero</button></li>
-      <li><button class="nav__btn" data-id="talent">Talent</button></li>
-      <li><button class="nav__btn" data-id="works">Works</button></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section id="hero">
-      <h1 id="hero__name">Aleksei</h1>
-      <h1 id="hero__surname">Stukalov</h1>
-      <h2 id="hero__position">Full Stack Developer</h2>
-      <h3 id="hero__statement">With a passion for Front End</h3>
-    </section>
-
-    <section id="talent">
-      <ul id="theme">
-        <li><button class="theme__btn" data-id="light">Light</button></li>
-        <li><button class="theme__btn" data-id="dark">Dark</button></li>
-        <li><button class="theme__btn" data-id="funny">Funny</button></li>
+    <nav id="nav">
+      <ul>
+        <li>
+          <button
+            class="nav__btn"
+            onclick="handleNavClick(this)"
+            data-active="true"
+          >
+            Hero
+          </button>
+        </li>
+        <li>
+          <button
+            class="nav__btn"
+            onclick="handleNavClick(this)"
+            data-active="false"
+          >
+            Talent
+          </button>
+        </li>
+        <li>
+          <button
+            class="nav__btn"
+            onclick="handleNavClick(this)"
+            data-active="false"
+          >
+            Works
+          </button>
+        </li>
+        <li>
+          <button
+            class="nav__btn"
+            onclick="handleNavClick(this)"
+            data-id="contacts"
+            data-active="false"
+          >
+            Contacts
+          </button>
+        </li>
       </ul>
+    </nav>
 
+    <main>
+      <section id="hero">
+        <h1 id="hero__name">Aleksei</h1>
+        <h1 id="hero__surname">Stukalov</h1>
+        <h2 id="hero__position">Full Stack Developer</h2>
+        <h3 id="hero__statement">With a passion for Front End</h3>
+      </section>
 
-    </section>
+      <section id="talent">
+        <ul id="talent__theme">
+          <li>
+            <button
+              class="theme__btn"
+              data-theme="light"
+              data-active="false"
+              onclick="handleThemeChange(this)"
+            >
+              Light
+            </button>
+          </li>
+          <li>
+            <button
+              class="theme__btn"
+              data-theme="dark"
+              data-active="true"
+              onclick="handleThemeChange(this)"
+            >
+              Dark
+            </button>
+          </li>
+          <li>
+            <button
+              class="theme__btn"
+              data-theme="funny"
+              data-active="false"
+              onclick="handleThemeChange(this)"
+            >
+              Funny
+            </button>
+          </li>
+        </ul>
 
-    <section id="works"></section>
-  </main>
+        <div id="talent__controls">
+          <select name="" id="">
+            <option value="weather">Weather</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="text" />
+          <button>Submit</button>
+        </div>
+      </section>
 
-  <!-- <footer>
+      <section id="works"></section>
+      <section id="contacts"></section>
+    </main>
+
+    <!-- <footer>
     <p>© 2023 Tekapo Project by Aleksei Stukalov from Blackdot Digital</p>
   </footer> -->
-</body>
-
+  </body>
 </html>
