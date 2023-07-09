@@ -5,6 +5,34 @@ const REPO_URL = 'https://github.com/yUtopist/tekapo'
 console.log('Hello World!')
 console.log(`Please feel free to look around my repo.\n${REPO_URL}`)
 
+// Lets handle page scrolling, so we can add some effects to it.
+// We highjack the page scroll so we can control it from index.js, now lets
+// make sure the page is scrolled to the top when it loads and then set body
+// to overflow hidden so the user cant scroll it.
+window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: "smooth",
+})
+document.body.style.overflow = "hidden";
+const main = document.querySelector('main')
+let currentSection = 0
+main.style.setProperty('--section', currentSection) // set current section to 0
+document.addEventListener('wheel', (event) => {
+  // Lets get the direction of the scroll, and then we can decide if we want to
+  // scroll up or down.
+  const direction = event.deltaY > 0 ? 1 : -1
+  // Lets also make sure that we are not at the end of the page, so we can
+  // prevent scrolling further down.
+  if (currentSection + direction < 0) return
+  // Lets also make sure that we are not at the start of the page, so we can
+  // prevent scrolling further up.
+  if (currentSection + direction > 2) return
+  // Lets scroll to the next section.
+  currentSection += direction
+  main.style.setProperty('--section', currentSection)
+})
+
 window.addEventListener('load', () => {
   const hero = document.querySelector('#hero')
 
@@ -29,7 +57,7 @@ window.addEventListener('load', () => {
     '#hero__statement span',
   ].join(', ')
   const randomElements = Array.from(hero.querySelectorAll(randomElementsList))
-  
+
   // We made document's body hiding all elements, so we can fade them in later.
   // While body is still hidden, lets hide individual elements as well, and then
   // remove loading state from body, so we can fade in elements.
@@ -38,7 +66,7 @@ window.addEventListener('load', () => {
   document.body.dataset.loading = "false"
 
   const orderedOptions = {
-    delay: 0,
+    delay: 500,
     interval: 30,
     type: 'ordered',
     id: 'fullname'
