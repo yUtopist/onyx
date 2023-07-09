@@ -53,17 +53,7 @@
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-button,
-a,
-a:hover,
-a:active,
-a:focus {
+h1, h2, h3, h4, h5, h6, button, a, a:hover, a:active, a:focus {
   all: unset;
 }
 
@@ -94,7 +84,11 @@ body {
 
   user-select: none;
 
-  > * {
+  h1 {font-size: 8rem;}
+  h2 {font-size: 3rem;}
+  h3 {font-size: 2rem;}
+
+  h1, h2, h3 {
     display: flex;
     justify-content: space-between;
 
@@ -127,26 +121,18 @@ body {
     span {
       transition: 0.3s;
 
-      &[data-state="hover"] {
+      &[data-state="middle"] {
         color: var(--clr-accent);
-        font-weight: 700;
+        font-weight: calc(var(--weight) + 400);
       }
 
-      &[data-state="sided"] {
+      &[data-state="side"] {
+        font-weight: calc(var(--weight) + 200);
+      }
+
+      &[data-state="grand"] {
         font-weight: calc(var(--weight) + 100);
       }
     }
-  }
-
-  h1 {
-    font-size: 8rem;
-  }
-
-  h2 {
-    font-size: 3rem;
-  }
-
-  h3 {
-    font-size: 2rem;
   }
 }
