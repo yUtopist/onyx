@@ -5,42 +5,6 @@
     url("fonts/Mona Sans/Mona-Sans.woff2") format("woff2");
 }
 
-:root {
-  // Colors
-  --clr-youngnight: #232323;
-  --clr-zeuspalace: #3c343d;
-  --clr-valhalla: #2a2b41;
-  --clr-viennaroast: #330022;
-  --clr-wildiris: #2f2f4a;
-  --clr-void: #050d25;
-  --clr-jet: #3c343d;
-  --clr-bone: #e0ddcf;
-  --clr-isabelline: #f7f0ea;
-  --clr-tomato: #ff4a49;
-  --clr-gradients: linear-gradient(
-    135deg,
-    rgb(254, 172, 94) 0%,
-    rgb(199, 121, 208) 50%,
-    rgb(75, 192, 200) 100%
-  );
-  // Fonts
-  --ff-primary: "Mona Sans", sans-serif;
-
-  // Dark theme setup
-  &:has(body[data-theme="dark"]) {
-    --clr-background: var(--clr-youngnight);
-    --clr-foreground: var(--clr-bone);
-    --clr-accent: var(--clr-tomato);
-    --clr-focus: var(--clr-isabelline);
-  }
-  &:has(body[data-theme="light"]) {
-    --clr-background: var(--clr-bone);
-    --clr-foreground: var(--clr-jet);
-    --clr-accent: var(--clr-tomato);
-    --clr-focus: var(--clr-isabelline);
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -62,11 +26,44 @@ html {
 }
 
 body {
+  // Colors
+  --clr-youngnight: #232323;
+  --clr-zeuspalace: #3c343d;
+  --clr-valhalla: #2a2b41;
+  --clr-viennaroast: #330022;
+  --clr-wildiris: #2f2f4a;
+  --clr-void: #050d25;
+  --clr-jet: #3c343d;
+  --clr-bone: #e0ddcf;
+  --clr-isabelline: #f7f0ea;
+  --clr-tomato: #ff4a49;
+  --clr-gradients: linear-gradient(
+      135deg,
+      rgb(254, 172, 94) 0%,
+      rgb(199, 121, 208) 50%,
+      rgb(75, 192, 200) 100%
+    );
+    // Fonts
+  --ff-primary: "Mona Sans", sans-serif;
 
   font-family: var(--ff-primary);
   font-weight: 300;
   color: var(--clr-foreground);
   background: var(--clr-background);
+
+  // Dark theme setup
+  &[data-theme="dark"] {
+    --clr-background: var(--clr-youngnight);
+    --clr-foreground: var(--clr-bone);
+    --clr-accent: var(--clr-tomato);
+    --clr-focus: var(--clr-isabelline);
+  }
+  &[data-theme="light"] {
+    --clr-background: var(--clr-bone);
+    --clr-foreground: var(--clr-jet);
+    --clr-accent: var(--clr-tomato);
+    --clr-focus: var(--clr-isabelline);
+  }
 
   nav {
     position: fixed;
