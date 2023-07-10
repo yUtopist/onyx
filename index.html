@@ -104,18 +104,14 @@
         </ul>
 
         <div id="talent__controls">
-          <div
-            class="dropdown"
-            data-id="talent-dropdown"
-            data-active="false"
-            data-current="weather"
-          >
-            <button class="dropdown__btn">Weather API</button>
-            <ul class="dropdown__list">
-              <li><button data-id="weather">Weather API</button></li>
-              <li><button data-id="other">Other API</button></li>
-            </ul>
-          </div>
+          <select class="dropdown" id="talent__dropdown">
+            <option value="weather" selected>
+              <i class="ico sunny"></i>Weather API
+            </option>
+            <option value="other">
+              <i class="ico question"></i>Other API
+            </option>
+          </select>
 
           <input type="text" />
           <button>Submit</button>
