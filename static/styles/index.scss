@@ -1,8 +1,10 @@
+@import url("fluent-icons/FluentSystemIcons-Regular.css");
+
 @font-face {
   font-family: "Mona Sans";
   src: url("fonts/Mona Sans/Mona-Sans.ttf") format("truetype"),
-    url("fonts/Mona Sans/Mona-Sans.woff") format("woff"),
-    url("fonts/Mona Sans/Mona-Sans.woff2") format("woff2");
+    url("fonts/Mona Sans/Mona-Sans.woff2") format("woff2"),
+    url("fonts/Mona Sans/Mona-Sans.woff") format("woff");
 }
 
 * {
@@ -19,8 +21,17 @@
   }
 }
 
-h1, h2, h3, h4, h5, h6, input, select, button, a, a:hover, a:active, a:focus {
+h1, h2, h3, h4, h5, h6, input, select, button, li, a, a:hover, a:active, a:focus {
   all: unset;
+}
+
+i.icon {
+  width: 24px;
+  height: 24px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 html {
@@ -135,6 +146,36 @@ body {
     }
   }
 
+  .input_primary {
+    padding: .5rem .5rem;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--clr-foreground);
+    border-radius: 4px;
+
+    font-weight: 400;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      border-color: var(--clr-accent);
+    }
+
+    &[data-active="true"] {
+      border-color: var(--clr-foreground);
+
+      color: var(--clr-background);
+      background-color: var(--clr-foreground);
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: var(--clr-accent);
+    }
+
+  }
+
   .btn_primary {
     min-width: 3rem;
     padding: .5rem 2rem;
@@ -145,7 +186,38 @@ body {
     border-radius: 4px;
 
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      border-color: var(--clr-accent);
+    }
+
+    &[data-active="true"] {
+      border-color: var(--clr-foreground);
+
+      color: var(--clr-background);
+      background-color: var(--clr-foreground);
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: var(--clr-accent);
+    }
+  }
+
+  .btn_submit {
+    min-width: 3rem;
+    padding: .5rem 2rem;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--clr-foreground);
+    border-radius: 4px;
+
+    text-align: center;
+    font-weight: 400;
     cursor: pointer;
     transition: .3s;
 
@@ -167,39 +239,92 @@ body {
   }
 
   .dropdown {
-    min-width: 8rem;
-    padding: .5rem 2rem;
-
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--clr-foreground);
-    border-radius: 4px;
-
+    min-width: 10rem;
+    // padding: .5rem 2rem;
+    position: relative;
     
-    font-weight: 300;
-    transition: .3s;
+    font-weight: 400;
+
+    .icon {
+      margin-left: .25rem;
+      margin-right: .25rem;
+    }
     
-    .dropdown__btn {
+    button  {
       width: 100%;
       padding-block: .5rem;
 
       display: flex;
       align-items: center;
 
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--clr-foreground);
+      border-radius: 4px;
+
       line-height: 1;
       
       cursor: pointer;
+      transition: .3s;
 
-      svg {
-        width: 24px;
-        height: 24px;
-        margin-inline: .5rem;
+      &:hover {
+        border-color: var(--clr-accent);
+      }
+
+      &:focus {
+        border-color: var(--clr-accent);
+      }
+
+      .arrow {
+        margin-left: auto;
+        margin-right: .25rem;
       }
     }
 
-    .dropdown__list {
-      display: none;
+    ul {
       position: absolute;
+      width: 100%;
+
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--clr-foreground);
+      border-radius: 4px;
+
+      transition: .3s;
+      transform: translateY(.5rem);
+      overflow: hidden;
+      opacity: 0;
+
+      &[data-state="hidden"] {
+        display: none;
+      }
+      
+      &[data-state="active"] {
+        transform: translateY(.25rem);
+        opacity: 1;
+        opacity: 1;
+      }
+
+      li {
+        padding: .5rem .25rem;
+        
+        display: flex;
+        align-items: center;
+
+        line-height: 1;
+        user-select: none;
+
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover, &:focus {
+          background-color: var(--clr-accent);
+        }
+      }
+    }
+
+    select[data-visible="false"] {
+      display: none;
     }
   }
 
@@ -245,7 +370,7 @@ body {
     }
 
     span {
-      transition: 0.3s;
+      transition: .3s;
 
       &[data-state="middle"] {
         color: var(--clr-accent);
@@ -282,7 +407,11 @@ body {
   #talent__controls {
     display: flex;
     justify-content: space-around;
+    gap: 1rem;
 
+    input {
+      flex-grow: 1;
+    }
   }
   
 }

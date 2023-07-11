@@ -2,9 +2,6 @@ import { charPopper } from './scripts/charPopper.js'
 import { objectFader } from './scripts/objectFader.js'
 import { DesignSystem } from './scripts/DesignSystem.js'
 
-const designSystem = DesignSystem()
-designSystem.initialize()
-
 const REPO_URL = 'https://github.com/yUtopist/tekapo'
 console.log('Hello World!')
 console.log(`Please feel free to look around my repo.\n${REPO_URL}`)
@@ -13,7 +10,8 @@ const body = document.body
 const nav = document.querySelector('nav')
 const theme = document.querySelector('#talent__theme')
 
-nav.dataset.hidden = 'true'
+const designSystem = DesignSystem()
+
 // show up after 1 sec
 setTimeout(() => nav.dataset.hidden = 'false', 2000)
 

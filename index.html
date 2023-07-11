@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tekapo</title>
 
-    <link rel="stylesheet" href="./static/index.min.css" />
+    <link rel="stylesheet" type="text/css" href="./static/index.min.css" />
     <script type="module" src="./static/index.js" defer></script>
   </head>
 
@@ -19,7 +19,7 @@
       // We removing this toggle from index.js
     </script>
 
-    <nav id="nav">
+    <nav id="nav" data-hidden="true">
       <ul>
         <li>
           <button
@@ -102,19 +102,22 @@
             </button>
           </li>
         </ul>
-
+      
         <div id="talent__controls">
-          <select class="dropdown" id="talent__dropdown">
-            <option value="weather" selected>
-              <i class="ico sunny"></i>Weather API
-            </option>
-            <option value="other">
-              <i class="ico question"></i>Other API
-            </option>
-          </select>
+          <div tabindex="1" class="dropdown" id="talent__dropdown" data-selected="Weather">
+            <!-- If button content is empty then show selected option -->
+            <div data-value="Weather">
+              <i class="icon icon-ic_fluent_weather_sunny_16_regular"></i>
+              Weather API
+            </div>
+            <div data-value="Other">
+              <i class="icon icon-ic_fluent_local_language_16_regular"></i>
+              Translate API
+            </div>
+          </div>
 
-          <input type="text" />
-          <button>Submit</button>
+          <input class="input_primary" type="text" />
+          <button class="btn_submit">Submit</button>
         </div>
       </section>
 
