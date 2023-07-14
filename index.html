@@ -102,9 +102,14 @@
             </button>
           </li>
         </ul>
-      
+
         <div id="talent__controls">
-          <div tabindex="1" class="dropdown" id="talent__dropdown" data-selected="Weather">
+          <div
+            tabindex="1"
+            class="dropdown"
+            id="talent__dropdown"
+            data-selected="Weather"
+          >
             <!-- If button content is empty then show selected option -->
             <div data-value="Weather">
               <i class="icon icon-ic_fluent_weather_sunny_16_regular"></i>
@@ -116,7 +121,12 @@
             </div>
           </div>
 
-          <input class="input_primary" type="text" />
+          <input
+            class="input_primary"
+            type="text"
+            oninput="cityFinderHandler(event)"
+            placeholder="Start typing New Zealand city"
+          />
           <button class="btn_submit">Submit</button>
         </div>
       </section>

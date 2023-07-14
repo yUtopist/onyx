@@ -140,3 +140,23 @@ document.addEventListener(
 
 objectFader(orderedElements, orderedOptions)
 /* ========================================================================== */
+
+window.cityFinderHandler = (event) => {
+  const input = event.target
+  const value = input.value
+  // const cities = Array.from(document.querySelectorAll('#city__list li'))
+  console.log(value)
+  const url = 'https://api.api-ninjas.com/v1/city?name=' + value
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': '4XDMs1vTv2VPEfeycj45Tw==Btt5xd59oxNiLc6Z',
+    },
+    contentType: 'application/json'
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => console.log(error))
+}
