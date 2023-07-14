@@ -2,6 +2,8 @@ import { charPopper } from './scripts/charPopper.js'
 import { objectFader } from './scripts/objectFader.js'
 import { DesignSystem } from './scripts/DesignSystem.js'
 
+import { dotENV } from '../dotENV.js'
+
 const REPO_URL = 'https://github.com/yUtopist/tekapo'
 console.log('Hello World!')
 console.log(`Please feel free to look around my repo.\n${REPO_URL}`)
@@ -150,7 +152,7 @@ window.cityFinderHandler = (event) => {
   fetch(url, {
     method: 'GET',
     headers: {
-      'X-Api-Key': '4XDMs1vTv2VPEfeycj45Tw==Btt5xd59oxNiLc6Z',
+      'X-Api-Key': dotENV.ninjaAPI,
     },
     contentType: 'application/json'
   })
