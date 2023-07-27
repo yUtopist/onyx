@@ -1,0 +1,56 @@
+#Hero {
+  margin-inline: calc((100vw - 48rem) / 2);
+
+  text-transform: uppercase;
+  // ser-select: none;
+
+  // Heading fonts sizes
+  h1 { font-size: 8rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2rem; }
+
+  // Heading margins
+  #hero__name { margin-bottom: 0.5rem; }
+  #hero__surname { margin-bottom: 2.75rem; }
+  #hero__position { margin-bottom: 0.75rem; }
+
+  // Heading font weight
+  #hero__name,
+  #hero__position,
+  #hero__statement {
+    --weight: 300;
+    font-weight: var(--weight);
+  }
+  #hero__surname {
+    --weight: 500;
+    font-weight: var(--weight);
+  }
+
+  // h1, h2, h3 {
+  //   display: flex;
+  //   justify-content: space-between;
+
+  //   text-transform: uppercase;
+
+  //   span {
+  //     transition: var(--transition);
+
+  //     &[data-state='middle'] {
+  //       color: var(--clr-accent);
+  //       font-weight: calc(var(--weight) + 400);
+  //     }
+
+  //     &[data-state='side'] {
+  //       font-weight: calc(var(--weight) + 200);
+  //     }
+
+  //     &[data-state='grand'] {
+  //       font-weight: calc(var(--weight) + 100);
+  //     }
+
+  //     &[data-hidden='true'] {
+  //       opacity: 0;
+  //     }
+  //   }
+  // }
+}

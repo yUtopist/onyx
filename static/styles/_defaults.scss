@@ -1,0 +1,52 @@
+@import url('fluent-icons/FluentSystemIcons-Regular.css');
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('fonts/Mona Sans/Mona-Sans.ttf') format('truetype'),
+    url('fonts/Mona Sans/Mona-Sans.woff2') format('woff2'),
+    url('fonts/Mona Sans/Mona-Sans.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  list-style: none;
+
+  // user text highlight color
+  &::selection {
+    background: var(--clr-focus);
+    color: var(--clr-background);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+button,
+li,
+a,
+a:hover,
+a:active,
+a:focus {
+  all: unset;
+}
+
+i.icon {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html {
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}

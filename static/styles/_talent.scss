@@ -1,0 +1,22 @@
+#talent {
+  margin-inline: calc((100vw - 48rem) / 2);
+
+  #talent__theme {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #talent__controls {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+
+    input {
+      flex-grow: 1;
+    }
+  }
+}

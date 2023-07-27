@@ -11,128 +11,40 @@
 
   <body data-theme="dark" data-section="hero">
     <script>
-      // We dont want any post-page-open styling glitches when the page is loading
-      // with default styling and then blinks in to proper styling.
+      // We dont want any post-page-open styling glitches when the page is
+      // loading with default styling and then blinks in to proper styling.
       // So lets just add a dataset loading to the body that will hide it until
       // the page is loaded.
-      document.body.dataset.loading = 'true'
+      // document.body.dataset.loading = 'true'
       // We removing this toggle from index.js
     </script>
 
-    <nav id="nav" data-hidden="true">
-      <ul>
-        <li>
-          <button
-            class="nav__btn"
-            onclick="handleNavClick(this)"
-            data-active="true"
-          >
-            Hero
-          </button>
-        </li>
-        <li>
-          <button
-            class="nav__btn"
-            onclick="handleNavClick(this)"
-            data-active="false"
-          >
-            Talent
-          </button>
-        </li>
-        <li>
-          <button
-            class="nav__btn"
-            onclick="handleNavClick(this)"
-            data-active="false"
-          >
-            Works
-          </button>
-        </li>
-        <!-- <li>
-          <button
-            class="nav__btn"
-            onclick="handleNavClick(this)"
-            data-id="contacts"
-            data-active="false"
-          >
-            Contacts
-          </button>
-        </li> -->
-      </ul>
+    <nav id="Navigation" data-hidden="true">
+      <button aria-label="Hero" data-active="true"></button>
+      <button aria-label="Talent" data-active="false"></button>
+      <button aria-label="Works" data-active="false"></button>
+      <button aria-label="Contacts" data-active="false"></button>
     </nav>
 
     <main>
-      <section id="hero">
+      <section id="Hero">
         <h1 id="hero__name">Aleksei</h1>
         <h1 id="hero__surname">Stukalov</h1>
         <h2 id="hero__position">Full Stack Developer</h2>
         <h3 id="hero__statement">With a passion for Front End</h3>
       </section>
 
-      <section id="talent">
-        <ul id="talent__theme">
-          <li>
-            <button
-              class="btn_primary"
-              data-theme="light"
-              data-active="false"
-              onclick="handleThemeChange(this)"
-            >
-              Light
-            </button>
-          </li>
-          <li>
-            <button
-              class="btn_primary"
-              data-theme="dark"
-              data-active="true"
-              onclick="handleThemeChange(this)"
-            >
-              Dark
-            </button>
-          </li>
-          <li>
-            <button
-              class="btn_primary"
-              data-theme="funny"
-              data-active="false"
-              onclick="handleThemeChange(this)"
-            >
-              Funny
-            </button>
-          </li>
-        </ul>
-
-        <div id="talent__controls">
-          <div
-            tabindex="1"
-            class="dropdown"
-            id="talent__dropdown"
-            data-selected="Weather"
-          >
-            <!-- If button content is empty then show selected option -->
-            <div data-value="Weather">
-              <i class="icon icon-ic_fluent_weather_sunny_16_regular"></i>
-              Weather API
-            </div>
-            <div data-value="Other">
-              <i class="icon icon-ic_fluent_local_language_16_regular"></i>
-              Translate API
-            </div>
-          </div>
-
-          <input
-            class="input_primary"
-            type="text"
-            oninput="cityFinderHandler(event)"
-            placeholder="Start typing New Zealand city"
-          />
-          <button class="btn_submit">Submit</button>
+      <section id="Talent">
+        <div class="talent__theme">
+          <button data-active="false">Light</button>
+          <button data-active="true">Dark</button>
+          <button data-active="false">Funny</button>
         </div>
+
       </section>
 
-      <section id="works"></section>
-      <section id="contacts"></section>
+      <section id="Works"></section>
+      <section id="Contacts"></section>
     </main>
 
     <!-- <footer>

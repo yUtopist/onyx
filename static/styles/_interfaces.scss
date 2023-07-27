@@ -1,0 +1,51 @@
+#Navigation {
+  z-index: 100;
+
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  transform: translateY(-50%);
+  transition: var(--transition);
+
+  &[data-hidden='true'] {
+    opacity: 0;
+  }
+
+  button {
+    width: 0.75rem;
+    height: 0.75rem;
+
+    border-radius: 0.5rem;
+    background-color: var(--clr-foreground);
+    transition: var(--transition);
+
+    &[data-active='true'] {
+      height: 5rem;
+      background-color: var(--clr-accent);
+      pointer-events: none;
+    }
+
+    &[data-active='false'] {
+      cursor: pointer;
+    }
+  }
+}
+
+main > section {
+  position: relative;
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  scroll-snap-align: center;
+}
