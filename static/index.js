@@ -1,63 +1,55 @@
-import { charPopper } from './scripts/charPopper.js'
-import { objectFader } from './scripts/objectFader.js'
+import './scripts/pageScrollHandler.js'
+
+import { Popper } from './scripts/Popper.js'
+import { Fader } from './scripts/Fader.js'
 import { DesignSystem } from './scripts/DesignSystem.js'
 
 import { dotENV } from '../dotENV.js'
 
+// God I love GitHub Copilot!
 const REPO_URL = 'https://github.com/yUtopist/tekapo'
 console.log('Hello World!')
 console.log(`Please feel free to look around my repo.\n${REPO_URL}`)
-// God I love GitHub Copilot!
 
-const body = document.body
+// Hero
+const hero = document.body.querySelector('#Hero')
+// Function Popper will take a heading element as an input, then separate
+// each character in a span element, and do some magic with it.
+const heroHeadings = Array.from(hero.children) // will return list of headings
+heroHeadings.forEach(heading => Popper(heading)) // add effect to headings
 
-const navigation = body.querySelector('#Navigation')
-const navigationButtons = Array.from(navigation.querySelectorAll('button'))
+// At this point the headings are hidden, and we want to fade them in one span
+// at a time. We can do this by using Fader function. The function will take
+// two arguments - the list of elements that we want to fade in, and the options
+// object that will tell the function how to fade in the elements. For more
+// information about the options object, please refer to the Fader.js
 
-let currentSection = 0 // Index of the current page section. For scrolling.
-let scrolling = false
-const scrollToSection = index => {
-  // Set all buttons to inactive and the clicked button to active.
-  navigationButtons.forEach(button => (button.dataset.active = 'false'))
-  navigationButtons[index].dataset.active = 'true'
-  // Scrolling to the section. We need to get the index of the button and
-  // then we can scroll to the section by multiplying the index with the
-  // height of the window.
-  window.scrollTo({
-    top: index * window.innerHeight, // Math checks out nicely.
-    behavior: 'smooth',
-  })
-  // Update the current section index.
-  currentSection = index
-}
-// Show up the navigation 2 seconds after the page loades.
-setTimeout(() => (navigation.dataset.hidden = 'false'), 2000)
-// We want to change dataset of buttons when they are clicked and handle
-// the scroll to the section.
-navigationButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const index = navigationButtons.indexOf(button)
-    scrollToSection(index)
-  })
+// First name and Surname characters fade in one after another, while position
+// and statement characters fade in randomly. First lets get a list of
+// characters for each heading.
+const firstName = Array.from(hero.querySelector('#hero__name').children)
+const surname = Array.from(hero.querySelector('#hero__surname').children)
+const name = [...firstName, ...surname]
+const position = Array.from(hero.querySelector('#hero__position').children)
+const statement = Array.from(hero.querySelector('#hero__statement').children)
+const information = [...position, ...statement]
+
+// Now that we have a list of span element for character, lets hide them all.
+name.forEach(element => (element.dataset.hidden = 'true'))
+information.forEach(element => (element.dataset.hidden = 'true'))
+// Since all of the characters are hidden, we can remove the loading state from
+// the body element.
+document.body.dataset.loading = 'false'
+
+// And finally we can fade them in with appropriate options.
+Fader(name, {
+  delay: 500, // 1 second delay before the animation starts
+  interval: 20, // 20ms delay between each element
+  type: 'ordered' // will fade in in order
 })
-// Lets also handle the scroll event to scroll to the section and change the
-// active button. We hijack the scroll of the page, so we can control it.
-document.addEventListener('wheel', event => {
-  if (scrolling) return // Early return if we are already scrolling.
-  scrolling = true
-  setTimeout(() => (scrolling = false), 500)
-  // Lets get the direction of the scroll, and then we can decide if we want to
-  // scroll up or down.
-  // console.log(currentSection)
-  const direction = event.deltaY > 0 ? 1 : -1
-  // Lets make sure that we are not at the start of the page, so we can prevent
-  // scrolling further up.
-  if (currentSection + direction < 0) return
-  // Lets also make sure that we are not at the end of the page, so we can
-  // prevent scrolling further down.
-  if (currentSection + direction > navigationButtons.length - 1) return
-  // Lets scroll to the next section.
-  currentSection += direction
 
-  scrollToSection(currentSection)
+Fader(information, {
+  delay: 1000, // 1 second delay before the animation starts
+  interval: 10, // 30ms delay between each element
+  type: 'random' // will fade in randomly
 })
