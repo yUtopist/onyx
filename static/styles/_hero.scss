@@ -1,6 +1,7 @@
 #Hero {
-  margin-inline: calc((100vw - 48rem) / 2);
-
+  --width: 48rem;
+  margin-inline: calc((100vw - var(--width)) / 2);
+  
   text-transform: uppercase;
   user-select: none;
 
@@ -8,6 +9,24 @@
   h1 { font-size: 8rem; }
   h2 { font-size: 3rem; }
   h3 { font-size: 2rem; }
+
+  // 1400px
+  @media (max-width: 87.5rem) {
+    --width: 43rem;
+
+    h1 { font-size: 6rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.75rem; }
+  }
+  
+  // 1000px
+  @media (max-width: 62.5rem) {
+    --width: 36rem;
+
+    h1 { font-size: 5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+  }
 
   // Heading margins
   #hero__name { margin-bottom: 0.5rem; }
@@ -29,7 +48,6 @@
   h1, h2, h3 {
     display: flex;
     justify-content: space-between;
-    gap: 0.5rem;
 
     span {
       transition: var(--transition);

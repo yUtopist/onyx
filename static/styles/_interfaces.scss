@@ -19,15 +19,15 @@
   }
 
   button {
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 0.5rem;
+    height: 0.5rem;
 
     border-radius: 0.5rem;
     background-color: var(--clr-foreground);
     transition: var(--transition);
 
     &[data-active='true'] {
-      height: 5rem;
+      height: 3rem;
       background-color: var(--clr-accent);
       pointer-events: none;
     }
