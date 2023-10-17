@@ -1,4 +1,4 @@
-import './scripts/pageScrollHandler.js'
+// import './scripts/pageScrollHandler.js'
 
 import { Popper } from './scripts/Popper.js'
 import { Fader } from './scripts/Fader.js'
