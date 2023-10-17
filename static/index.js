@@ -4,7 +4,7 @@ import { Popper } from './scripts/Popper.js'
 import { Fader } from './scripts/Fader.js'
 import { DesignSystem } from './scripts/DesignSystem.js'
 
-import { dotENV } from '../dotENV.js'
+// import { dotENV } from '../dotENV.js'
 
 // God I love GitHub Copilot!
 const REPO_URL = 'https://github.com/yUtopist/tekapo'
