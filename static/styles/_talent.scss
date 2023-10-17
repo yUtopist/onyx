@@ -1,5 +1,11 @@
-#talent {
+#Talent {
   margin-inline: calc((100vw - 48rem) / 2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 
   #talent__theme {
     position: absolute;
