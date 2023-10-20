@@ -4,6 +4,8 @@ export const Popper = (heading) => {
   const content = heading.textContent.split('')
   heading.textContent = ''
 
+  console.log(content)
+
   // Now we can create a span element for each character and add it to the
   // heading element. Each span element will have a mouseenter and mouseleave
   // event listener to handle the animation. We need the function that handles
@@ -14,31 +16,40 @@ export const Popper = (heading) => {
     const characters = Array.from(heading.children)
     characters.forEach(char => char.dataset.state = 'idle')
   }
+  const handleFocus = (index) => {
+    // Referencing the characters around the current character since we want
+    // to animate 5 characters at a time.
+    const current = heading.children[index]
+    const closeLeft = heading.children[index - 1]
+    const closeRight = heading.children[index + 1]
+    const farLeft = heading.children[index - 2]
+    const farRight = heading.children[index + 2]
+    // Setting up the dataset that is used in CSS for the animation.
+    // Further conditional checks are used to prevent errors when the
+    // characters are at the start or end of the heading.
+    current.dataset.state = 'current'
+    if (closeLeft) closeLeft.dataset.state = 'close'
+    if (closeRight) closeRight.dataset.state = 'close'
+    if (farLeft) farLeft.dataset.state = 'far'
+    if (farRight) farRight.dataset.state = 'far'
+  }
+  const handleTouch = (index) => {
+    // On touch we want to trigger the character animation, but we also want
+    // to set it to idle on a timer. This is because we dont have a mouseleave
+    // event on touch devices.
+    handleFocus(index)
+    // heading.children[index].dataset.state = 'current'
+    setTimeout(() => setAllToIdle(), 500)
+  }
   // Creating span elements for each character and adding them to the heading.
   content.forEach((char, index) => {
-    const handleEnter = (index) => {
-      // Referencing the characters around the current character since we want
-      // to animate 5 characters at a time.
-      const current = heading.children[index]
-      const closeLeft = heading.children[index - 1]
-      const closeRight = heading.children[index + 1]
-      const farLeft = heading.children[index - 2]
-      const farRight = heading.children[index + 2]
-      // Setting up the dataset that is used in CSS for the animation.
-      // Further conditional checks are used to prevent errors when the
-      // characters are at the start or end of the heading.
-      current.dataset.state = 'current'
-      if (closeLeft) closeLeft.dataset.state = 'close'
-      if (closeRight) closeRight.dataset.state = 'close'
-      if (farLeft) farLeft.dataset.state = 'far'
-      if (farRight) farRight.dataset.state = 'far'
-    }
     // OK, lets create our characters, insert listeners and add them to the
     // heading.
     const span = document.createElement('span')
     span.textContent = char === ' ' ? '\u00A0' : char // Handling html space
-    span.addEventListener('mouseenter', () => handleEnter(index))
+    span.addEventListener('mouseenter', () => handleFocus(index))
     span.addEventListener('mouseleave', () => setAllToIdle())
+    span.addEventListener('touchstart', () => handleTouch(index))
 
     heading.appendChild(span)
   })
