@@ -4,8 +4,6 @@ export const Popper = (heading) => {
   const content = heading.textContent.split('')
   heading.textContent = ''
 
-  console.log(content)
-
   // Now we can create a span element for each character and add it to the
   // heading element. Each span element will have a mouseenter and mouseleave
   // event listener to handle the animation. We need the function that handles
