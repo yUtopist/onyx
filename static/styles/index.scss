@@ -27,6 +27,8 @@ body {
   // Misc
   --transition: 0.3s;
 
+  touch-action: manipulation;
+
   // Theme setup
   &[data-theme='light'] {
     --clr-background: var(--clr-bone);
